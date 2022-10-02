@@ -5,7 +5,7 @@ layout: post
 categories: media
 ---
 
-![Swiss Alps](https://drive.google.com/file/d/1EIRpm78ovDkdzisxxsBfg2P6dufANpZU/view?usp=sharing)
+![Swiss Alps]([https:](https://www.dropbox.com/s/wk1fr8fdmv1edqx/b1dcf840b01d40dd544695818955712c.jpg?dl=0))
 
 
 ## MathJax
