@@ -5,7 +5,7 @@ layout: post
 categories: media
 ---
 
-![Swiss Alps](https://www.dropbox.com/s/wk1fr8fdmv1edqx/b1dcf840b01d40dd544695818955712c.jpg?dl=0)
+![Swiss Alps](b1dcf840b01d40dd544695818955712c.jpg)
 
 
 ## MathJax
