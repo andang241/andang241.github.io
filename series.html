@@ -1,0 +1,23 @@
+---
+layout: page
+title: "Series"
+permalink: /series/
+---
+
+{% assign series_list = site.posts | map: "series" | compact | uniq | sort %}
+{% if series_list.size == 0 %}
+<p class="muted">Chưa có series nào.</p>
+{% else %}
+<p class="muted">Các loạt bài theo chủ đề — đọc tuần tự từ phần đầu tiên.</p>
+{% for s in series_list %}
+  {% assign parts = site.posts | where: "series", s | sort: "series_part" %}
+  <section class="series-group">
+    <h2 class="series-group__title">{{ s }} <span class="muted">· {{ parts | size }} phần</span></h2>
+    <ol class="series-group__list">
+      {% for p in parts %}
+      <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a> <span class="muted mono">— {{ p.date | date: '%d/%m/%Y' }}</span></li>
+      {% endfor %}
+    </ol>
+  </section>
+{% endfor %}
+{% endif %}

@@ -1,0 +1,22 @@
+---
+layout: page
+title: "Lưu trữ"
+permalink: /archive/
+---
+
+{% if site.posts.size == 0 %}
+<p class="muted">Chưa có bài viết.</p>
+{% else %}
+<p class="muted">{{ site.posts | size }} bài viết.</p>
+{% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in years %}
+<section class="archive-year">
+  <h2>{{ year.name }}</h2>
+  <ul>
+    {% for post in year.items %}
+    <li><span class="muted mono">{{ post.date | date: '%d/%m' }}</span> <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+{% endif %}

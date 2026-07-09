@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<section class="hero">
+  <h1 class="hero__title">{{ site.title }}</h1>
+  <p class="hero__tagline">{{ site.tagline }}</p>
+</section>
+
+{% assign all_tags = site.tags | sort %}
+{% if all_tags.size > 0 %}
+<div class="filters" id="filters" aria-label="Lọc bài viết theo tag">
+  <button class="chip is-active" data-filter="*">Tất cả</button>
+  {% for tag in all_tags %}
+  <button class="chip" data-filter="{{ tag[0] | slugify }}">#{{ tag[0] }}</button>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="post-list" id="post-list">
+  {% for post in site.posts %}
+    {% include post-card.html post=post %}
+  {% endfor %}
+</div>
+
+<p class="empty-hint" id="empty-hint" hidden>Không có bài viết nào khớp bộ lọc.</p>
+
+{{ content }}

@@ -1,26 +1,35 @@
 # --- Thông tin site ---
 title: "root@"
-author: "An Dang"
-description: "whoami? root — blog về bảo mật, SOC và những đêm cày log."
+tagline: "Ghi chú về bảo mật, SOC và những đêm cày log."
+description: "Blog cá nhân về bảo mật, SOC và ghi chú kỹ thuật của An Đăng."
+author: "An Đăng"
 lang: "vi"
 
-# Repo "andang241.github.io" là user site => baseurl để trống
 baseurl: ""
 url: "https://andang241.github.io"
 
-# --- Giao diện: theme hacker (chính chủ GitHub Pages) ---
-remote_theme: pages-themes/hacker@v0.2.0
-show_downloads: false      # ẩn nút Download .zip/.tar ở header
-
-# --- Định dạng bài viết ---
+# --- Bài viết ---
 permalink: /:year/:month/:day/:title/
-date_format: "%d/%m/%Y"
+timezone: Asia/Ho_Chi_Minh
 
-# --- Plugin (đều nằm trong danh sách GitHub Pages hỗ trợ) ---
+# --- Mạng xã hội (hiện ở footer) ---
+social:
+  github: "andang241"
+  email: "ninjaversusbear241@gmail.com"
+
+# --- Plugin (đều được GitHub Pages hỗ trợ) ---
 plugins:
-  - jekyll-remote-theme
-  - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# --- Mặc định front matter ---
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
 
 # --- Bỏ qua khi build ---
 exclude:

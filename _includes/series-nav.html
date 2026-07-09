@@ -1,0 +1,21 @@
+{% if page.series %}
+{% assign parts = site.posts | where: "series", page.series | sort: "series_part" %}
+<aside class="series-box">
+  <div class="series-box__head">
+    <span class="series-box__label">Series</span>
+    <strong>{{ page.series }}</strong>
+    <span class="series-box__count">{{ parts | size }} phần</span>
+  </div>
+  <ol class="series-box__list">
+    {% for p in parts %}
+    <li{% if p.url == page.url %} class="is-current" aria-current="true"{% endif %}>
+      {% if p.url == page.url %}
+      <span>{{ p.title }}</span><span class="tag tag--now">đang đọc</span>
+      {% else %}
+      <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</aside>
+{% endif %}

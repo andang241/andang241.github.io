@@ -1,0 +1,26 @@
+---
+layout: page
+title: "Tags"
+permalink: /tags/
+---
+
+{% assign tags = site.tags | sort %}
+{% if tags.size == 0 %}
+<p class="muted">Chưa có tag nào.</p>
+{% else %}
+<div class="tagcloud">
+  {% for tag in tags %}
+  <a class="tag tag--lg" href="#{{ tag[0] | slugify }}">#{{ tag[0] }} <span class="tag__count">{{ tag[1] | size }}</span></a>
+  {% endfor %}
+</div>
+{% for tag in tags %}
+<section class="tag-section" id="{{ tag[0] | slugify }}">
+  <h2 class="tag-section__title">#{{ tag[0] }}</h2>
+  <ul class="tag-section__list">
+    {% for post in tag[1] %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="muted mono">— {{ post.date | date: '%d/%m/%Y' }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+{% endif %}

@@ -1,21 +1,4 @@
 ---
-layout: default
-title: "root@"
+layout: home
+title: "Trang chủ"
 ---
-
-<p><a href="{{ '/about/' | relative_url }}">~/about</a></p>
-
-<h2>Bài viết</h2>
-
-<ul class="posts">
-{% for post in site.posts %}
-  <li>
-    <code>{{ post.date | date: "%d/%m/%Y" }}</code>
-    &nbsp;<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-  </li>
-{% endfor %}
-</ul>
-
-{% if site.posts.size == 0 %}
-<p>Chưa có bài viết nào.</p>
-{% endif %}
