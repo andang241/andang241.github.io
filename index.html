@@ -1,10 +1,21 @@
 ---
 layout: default
-title: "Home"
+title: "root@"
 ---
 
-{% if site.show_excerpts %}
-  {% include home.html %}
-{% else %}
-  {% include archive.html title="Posts" %}
+<p><a href="{{ '/about/' | relative_url }}">~/about</a></p>
+
+<h2>Bài viết</h2>
+
+<ul class="posts">
+{% for post in site.posts %}
+  <li>
+    <code>{{ post.date | date: "%d/%m/%Y" }}</code>
+    &nbsp;<a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+
+{% if site.posts.size == 0 %}
+<p>Chưa có bài viết nào.</p>
 {% endif %}

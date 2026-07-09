@@ -1,7 +1,13 @@
 ---
 title: "About Me"
 permalink: "/about/"
-layout: page
+layout: default
 ---
 
-Hi các cậu <3 Mình hiện tại là sinh viên đang học tập tại trường Đại Học FPT. 
+Xin chào, mình là **An Đăng**.
+
+Đây là nơi mình ghi lại những ghi chú, kiến thức và trải nghiệm về bảo mật, SOC và công nghệ.
+
+- GitHub: [andang241](https://github.com/andang241)
+
+[&larr; Về trang chủ](/)

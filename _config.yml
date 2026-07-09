@@ -1,32 +1,30 @@
-title: "AnDang's Blog"
+# --- Thông tin site ---
+title: "root@"
 author: "An Dang"
-description: "Made with student of FPT University <b style=\"color: #f45;\">&lt;3</b>"
-permalink: /:title/
-lang: "en"
-excerpt_separator: "\n\n\n"
-date_format: "%B %d, %Y"
+description: "whoami? root — blog về bảo mật, SOC và những đêm cày log."
+lang: "vi"
 
-# Layout
+# Repo "andang241.github.io" là user site => baseurl để trống
+baseurl: ""
+url: "https://andang241.github.io"
 
-show_excerpts: false        # show article excerpts on the home page
-show_frame: false           # adds a gray frame to the site
-show_sidebar: true       # show a sidebar instead of the usual header
-minimal: false             # use a dark header
+# --- Giao diện: theme hacker (chính chủ GitHub Pages) ---
+remote_theme: pages-themes/hacker@v0.2.0
+show_downloads: false      # ẩn nút Download .zip/.tar ở header
 
-# Menu
+# --- Định dạng bài viết ---
+permalink: /:year/:month/:day/:title/
+date_format: "%d/%m/%Y"
 
-navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "index.html"}
-  - {file: "aboutme.md"}
-
-external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:ninjaversusbear241@gmail.com"}
-  - {title: Github, icon: github, url: "https://github.com/andang241"}
-  - {title: Facebook, icon: facebook, url: "https://www.facebook.com/ninjaversusbear/"}
-
-comments:
-#  disqus_shortname: ""    # see https://disqus.com/
-#  isso_domain: ""         # see https://posativ.org/isso/
-
+# --- Plugin (đều nằm trong danh sách GitHub Pages hỗ trợ) ---
 plugins:
- - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# --- Bỏ qua khi build ---
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

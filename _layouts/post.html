@@ -1,14 +1,12 @@
 ---
 layout: default
 ---
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  <p class="post-meta"><em>{{ page.date | date: "%d/%m/%Y" }}</em></p>
 
-<article>
-  {% include meta.html post=page %}
   {{ content }}
-  {% if page.comments != false and site.comments.isso or site.comments.disqus %}
-    <hr>
-    {% if site.comments.isso_domain %}<div id="isso-thread"></div>{% endif %}
-    {% if site.comments.disqus_shortname %}<div id="disqus_thread"></div>{% endif %}
-    <noscript>Please enable JavaScript to view comments.</noscript>
-  {% endif %}
+
+  <hr>
+  <p><a href="{{ '/' | relative_url }}">&larr; Về trang chủ</a></p>
 </article>
