@@ -11,6 +11,7 @@ url: "https://andang241.github.io"
 # --- Bài viết ---
 permalink: /:year/:month/:day/:title/
 timezone: Asia/Ho_Chi_Minh
+future: true          # hiện cả bài có mốc giờ "tương lai" so với lúc build
 
 # --- Mạng xã hội (hiện ở footer) ---
 social:
