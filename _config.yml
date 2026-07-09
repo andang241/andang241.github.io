@@ -38,3 +38,4 @@ exclude:
   - Gemfile.lock
   - vendor
   - README.md
+  - HUONG-DAN.md
