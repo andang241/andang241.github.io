@@ -2,17 +2,21 @@
 layout: default
 ---
 <section class="hero">
-  <h1 class="hero__title">{{ site.title }}</h1>
-  <p class="hero__tagline">{{ site.tagline }}</p>
+  <p class="hero__cmd"><span class="hero__prompt">root@andang241:~$</span> whoami</p>
+  <h1 class="hero__title">{{ site.title }}<span class="caret" aria-hidden="true"></span></h1>
+  <p class="hero__tagline">// {{ site.tagline }}</p>
 </section>
 
 {% assign all_tags = site.tags | sort %}
 {% if all_tags.size > 0 %}
-<div class="filters" id="filters" aria-label="Lọc bài viết theo tag">
-  <button class="chip is-active" data-filter="*">Tất cả</button>
-  {% for tag in all_tags %}
-  <button class="chip" data-filter="{{ tag[0] | slugify }}">#{{ tag[0] }}</button>
-  {% endfor %}
+<div class="filters-block">
+  <div class="filters__label"><span class="hero__prompt">$</span> filter --tag</div>
+  <div class="filters" id="filters" aria-label="Lọc bài viết theo tag">
+    <button class="chip is-active" data-filter="*">all</button>
+    {% for tag in all_tags %}
+    <button class="chip" data-filter="{{ tag[0] | slugify }}">{{ tag[0] }}</button>
+    {% endfor %}
+  </div>
 </div>
 {% endif %}
 

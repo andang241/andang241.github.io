@@ -1,12 +1,14 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="logo" href="{{ '/' | relative_url }}">root<span class="logo__at">@</span></a>
+    <a class="logo" href="{{ '/' | relative_url }}" aria-label="root@andang241">
+      <span class="logo__u">root</span><span class="logo__at">@</span><span class="logo__h">andang241</span><span class="logo__p">:~$</span><span class="caret caret--sm" aria-hidden="true"></span>
+    </a>
     <nav class="nav" aria-label="Điều hướng chính">
-      <a href="{{ '/' | relative_url }}">Trang chủ</a>
-      <a href="{{ '/series/' | relative_url }}">Series</a>
-      <a href="{{ '/tags/' | relative_url }}">Tags</a>
-      <a href="{{ '/archive/' | relative_url }}">Lưu trữ</a>
-      <a href="{{ '/about/' | relative_url }}">Giới thiệu</a>
+      <a href="{{ '/' | relative_url }}">~</a>
+      <a href="{{ '/series/' | relative_url }}">/series</a>
+      <a href="{{ '/tags/' | relative_url }}">/tags</a>
+      <a href="{{ '/archive/' | relative_url }}">/archive</a>
+      <a href="{{ '/about/' | relative_url }}">/about</a>
     </nav>
     <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Chuyển giao diện sáng/tối" title="Sáng / Tối"></button>
   </div>
