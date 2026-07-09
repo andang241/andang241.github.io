@@ -23,8 +23,8 @@
   --glow: rgba(255, 180, 84, .10);
 
   --radius: 2px;
-  --maxw: 1320px;
-  --maxw-read: 760px;
+  --maxw: 1600px;
+  --maxw-read: 880px;
 }
 
 :root[data-theme="light"] {
@@ -66,8 +66,23 @@ body::before {
   background: linear-gradient(90deg, var(--accent), transparent 55%);
 }
 ::selection { background: var(--sel); }
-.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-.main { padding: 46px 24px 84px; }
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 40px; }
+.shell { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 56px; padding-top: 46px; padding-bottom: 84px; align-items: start; }
+.shell__main { min-width: 0; }
+.sidebar { position: sticky; top: 78px; display: flex; flex-direction: column; gap: 32px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); line-height: 1.6; }
+.sidebar__h { color: var(--accent); margin: 0 0 12px; }
+.sidebar__name { color: var(--text); font-size: 15px; margin: 0 0 4px; }
+.sidebar p { margin: 0 0 6px; }
+.sidebar a { color: var(--text); }
+.sidebar a:hover { color: var(--accent); }
+.sidebar__social a { color: var(--muted); }
+.sidebar__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.sidebar__list a { line-height: 1.4; }
+.sidebar__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+@media (max-width: 980px) {
+  .shell { grid-template-columns: 1fr; gap: 0; }
+  .sidebar { position: static; margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--border); }
+}
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 img { max-width: 100%; height: auto; }
@@ -143,7 +158,7 @@ img { max-width: 100%; height: auto; }
 .card__title a { color: var(--text); }
 .card__title a::before { content: "\276F  "; color: var(--accent); }
 .card__title a:hover { color: var(--accent); text-decoration: none; }
-.card__excerpt { max-width: 780px; margin: 12px 0 0; color: var(--muted); font-size: 16.5px; }
+.card__excerpt { margin: 12px 0 0; color: var(--muted); font-size: 16.5px; }
 .card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .empty-hint { font-family: var(--font-mono); color: var(--muted); padding: 30px 0; }
 
@@ -159,7 +174,7 @@ a.tag:hover { color: var(--accent); border-color: var(--accent); text-decoration
 .tag--now { color: var(--accent); border-color: var(--accent); margin-left: 8px; }
 
 /* ---- Post ---- */
-.post { max-width: var(--maxw-read); margin: 0 auto; }
+.post { max-width: var(--maxw-read); margin: 0; }
 .post__header { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
 .post__title { font-family: var(--font-mono); font-weight: 800; font-size: clamp(28px, 5vw, 41px); line-height: 1.1; letter-spacing: -1.2px; margin: 0 0 16px; }
 .post__meta { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
@@ -197,10 +212,11 @@ pre code { background: none; border: 0; padding: 0; font-size: inherit; }
 .series-box__list li.is-current { color: var(--text); }
 
 /* ---- Pages: series / tags / archive / about ---- */
-.page { max-width: 900px; margin: 0 auto; }
+.page { max-width: none; margin: 0; }
 .page__title { font-family: var(--font-mono); font-weight: 800; font-size: clamp(28px, 5vw, 40px); letter-spacing: -1px; margin: 0 0 22px; }
 .page__title::before { content: "~/"; color: var(--accent); }
 .page__content h2 { font-family: var(--font-mono); }
+.page__content p { max-width: 820px; }
 
 .series-group { margin: 0; padding: 22px 0; border-bottom: 1px solid var(--border); }
 .series-group__title { font-family: var(--font-mono); font-weight: 700; font-size: 20px; margin: 0 0 12px; letter-spacing: -.3px; }
@@ -235,9 +251,7 @@ pre code { background: none; border: 0; padding: 0; font-size: inherit; }
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
   body { font-size: 17px; }
-  .main { padding: 30px 16px 60px; }
   .hero__title { letter-spacing: -1.5px; }
   .site-header__inner { gap: 8px; }
   .nav a { padding: 5px 6px; font-size: 12px; }
-  .card { grid-template-columns: 30px 1fr; column-gap: 12px; }
 }

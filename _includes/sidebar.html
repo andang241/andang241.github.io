@@ -1,0 +1,30 @@
+<aside class="sidebar">
+  <div class="sidebar__block">
+    <div class="sidebar__h">## info</div>
+    <p class="sidebar__name">An Đăng</p>
+    <p class="muted">Ghi chú về bảo mật &amp; SOC.</p>
+    <p class="sidebar__social">
+      {% if site.social.github %}<a href="https://github.com/{{ site.social.github }}">github</a>{% endif %} ·
+      {% if site.social.email %}<a href="mailto:{{ site.social.email }}">email</a>{% endif %} ·
+      <a href="{{ '/feed.xml' | relative_url }}">rss</a>
+    </p>
+  </div>
+
+  <div class="sidebar__block">
+    <div class="sidebar__h">## bài gần đây</div>
+    <ul class="sidebar__list">
+      {% for post in site.posts limit: 5 %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if site.tags.size > 0 %}
+  <div class="sidebar__block">
+    <div class="sidebar__h">## tags</div>
+    <div class="sidebar__tags">
+      {% for tag in site.tags %}<a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}">#{{ tag[0] }}</a>{% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</aside>
