@@ -23,8 +23,8 @@
   --glow: rgba(255, 180, 84, .10);
 
   --radius: 2px;
-  --maxw: 900px;
-  --maxw-read: 690px;
+  --maxw: 1120px;
+  --maxw-read: 760px;
 }
 
 :root[data-theme="light"] {
@@ -151,6 +151,11 @@ img { max-width: 100%; height: auto; }
 .card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .empty-hint { font-family: var(--font-mono); color: var(--muted); padding: 30px 0; }
 
+/* Wide screens: two-column directory listing to fill horizontal space */
+@media (min-width: 860px) {
+  .post-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 46px; }
+}
+
 /* ---- Tags ---- */
 .tag { font-family: var(--font-mono); font-size: 12px; color: var(--muted); border: 1px solid var(--border); border-radius: var(--radius); padding: 1px 7px; }
 a.tag:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
@@ -195,7 +200,7 @@ pre code { background: none; border: 0; padding: 0; font-size: inherit; }
 .series-box__list li.is-current { color: var(--text); }
 
 /* ---- Pages: series / tags / archive / about ---- */
-.page { max-width: 760px; margin: 0 auto; }
+.page { max-width: 900px; margin: 0 auto; }
 .page__title { font-family: var(--font-mono); font-weight: 800; font-size: clamp(28px, 5vw, 40px); letter-spacing: -1px; margin: 0 0 22px; }
 .page__title::before { content: "~/"; color: var(--accent); }
 .page__content h2 { font-family: var(--font-mono); }
